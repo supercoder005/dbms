@@ -1,0 +1,22 @@
+CREATE TABLE challan_header (
+    challan_no VARCHAR2(6) PRIMARY KEY,
+    s_order_no VARCHAR2(6) REFERENCES sales_order(s_order_no),
+    challan_date DATE NOT NULL,
+    billed_yn CHAR(1) DEFAULT 'N' CHECK (billed_yn IN ('Y', 'N'))
+);
+
+CREATE TABLE challan_details (
+    challan_no VARCHAR2(6) REFERENCES challan_header(challan_no),
+    product_no VARCHAR2(6) REFERENCES product_master(product_no),
+    qty_disp NUMBER(4,2) NOT NULL,
+    PRIMARY KEY (challan_no, product_no)
+);
+
+
+INSERT INTO challan_header (challan_no, s_order_no, challan_date, billed_yn)
+VALUES
+    ('CH9001', '019001', ('12-DEC-95'), 'Y'),
+    ('CH865', '046865', ('12-NOV-95'), 'Y'),
+    ('CH3965', '010008', ('12-OCT-95'), 'Y');
+
+

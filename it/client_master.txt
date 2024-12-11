@@ -1,0 +1,21 @@
+CREATE TABLE client_master(
+client_no Varchar2(6) NOT NULL,
+name Varchar2(20),
+  adress1 Varchar2(20),
+ adress2 Varchar2(20),
+ city Varchar2(15),
+  state Varchar2(15),
+  pincode number(6),
+  bal_due number(10,2)
+);
+
+INSERT INTO client_master(client_no, name, city, pincode, state, bal_due)
+VALUES
+('0001', '1Van', 'Bombay', '400054', 'Maharastra', '15000'),
+('0002', 'Vandana', 'Madras', '780001', 'Tamil Nadu', '0'),
+('0003', 'Pramada', 'Bombay', '400057', 'Maharastra', '5000'),
+('0004', 'Basu', 'Bombay', '400056', 'Maharastra', '0'),
+('0005', 'Ravi', 'Delhi', '100001', '', '2000'),
+('0006', 'Rukmini', 'Bombay', '400050', 'Maharastra', '0');
+
+Select * from client_master

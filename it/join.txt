@@ -1,0 +1,11 @@
+SELECT c.NAME FROM A as c
+JOIN B as o on c.ID = o.ID 
+WHERE o.age = '120';
+
+
+CREATE VIEW ABCD AS
+SELECT c.ID,c.NAME FROM A as c
+JOIN B as o on c.ID = o.ID ;
+
+
+CREATE INDEX _client_no ON client_master(client_no);
